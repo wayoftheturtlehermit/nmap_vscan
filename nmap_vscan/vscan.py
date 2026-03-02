@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Author: Nixawk
 
 """
 $ python2.7 vscan.py
