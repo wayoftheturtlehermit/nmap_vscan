@@ -3,7 +3,7 @@
 
 
 """
-$ python2.7 vscan.py
+$ python3 vscan.py
 {'match': {'pattern': '^.*<address>Apache/([\\d.]+) Server at ([-\\w_.]+) Port \\d+</address>\\n</body></html>\\n',
            'versioninfo': {'cpename': ['apache:http_server:2.4.7'],
                            'devicetype': [' v'],
