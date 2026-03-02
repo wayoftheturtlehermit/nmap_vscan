@@ -416,7 +416,7 @@ class ServiceScan(ServiceProbe):
                 while True:
                     _ = client.recv(SOCKET_READ_BUFFERSIZE)
                     if not _: break
-                    data += _
+                    data += _.decode('utf-8')
         except Exception as err:
             log.exception("{} : {} - {}".format(host, port, err))
 
@@ -433,7 +433,7 @@ class ServiceScan(ServiceProbe):
                 while True:
                     _, addr = client.recvfrom(SOCKET_READ_BUFFERSIZE)
                     if not _: break
-                    data += _
+                    data += _.decode('utf-8')
         except Exception as err:
             log.exception("{} : {} - {}".format(host, port, err))
 
@@ -610,5 +610,16 @@ if __name__ == "__main__":
     from pprint import pprint
 
     nmap = ServiceScan("./nmap-service-probes")
-    data = nmap.scan("www.gnu.org", 80, "tcp")
-    pprint(data)
+    opensusewiki = nmap.scan("wiki.opensuse.org", 80, "tcp")
+    print("Testing wiki.opensuse.org")
+    pprint(opensusewiki)
+    gnuorg = nmap.scan("www.gnu.org", 80, "tcp")
+    print("Testing www.gnu.org")
+    pprint(gnuorg)
+    lighttpd = nmap.scan("www.lighttpd.net", 80, "tcp")
+    print("Testing lighttpd.net")
+    pprint(lighttpd)
+    suseftp = nmap.scan("ftp.suse.com", 21, "tcp")
+    print("Testing ftp.suse.com")
+    pprint(suseftp)
+
